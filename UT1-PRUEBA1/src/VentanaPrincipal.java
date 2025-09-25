@@ -12,6 +12,8 @@ import javax.swing.JDialog;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     
+    
+    
     public void cambiarLabel(String texto){
      
         this.jLabel1.setText(texto);
@@ -80,6 +82,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void miBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBotonActionPerformed
         
         VentanaSecundaria ventanaSecundaria = new VentanaSecundaria(this, true);
+        
+        ventanaSecundaria.setTextdelJtextField1(this.jLabel1.getText());
+        
         ventanaSecundaria.setVisible(true);
         
     }//GEN-LAST:event_miBotonActionPerformed

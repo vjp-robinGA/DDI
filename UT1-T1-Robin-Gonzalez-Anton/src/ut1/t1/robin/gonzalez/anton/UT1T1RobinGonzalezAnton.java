@@ -42,7 +42,7 @@ public class UT1T1RobinGonzalezAnton {
                             + "\n|                |"
                             + "\n|"
                             + "\n|"
-                            + "\n|                                " + ocultarPalabra(palabras.get(indice).getPalabra())
+                            + "\n|                                " + palabras.get(indice).getPalabra()
                             + "\n|"
                             + "\n|                                  Pista: " + palabras.get(indice).getPista()
                             + "\n|"
@@ -62,7 +62,7 @@ public class UT1T1RobinGonzalezAnton {
                             + "\n|                |"
                             + "\n|              .---."
                             + "\n|             ( o o )"
-                            + "\n|              *---*             " + ocultarPalabra(palabras.get(indice).getPalabra())
+                            + "\n|              *---*             " + palabras.get(indice).getPalabra()
                             + "\n|"
                             + "\n|                                  Pista: " + palabras.get(indice).getPista()
                             + "\n|"
@@ -81,7 +81,7 @@ public class UT1T1RobinGonzalezAnton {
                             + "\n|                |"
                             + "\n|              .---."
                             + "\n|             ( o o )"
-                            + "\n|              *---*             " + ocultarPalabra(palabras.get(indice).getPalabra())
+                            + "\n|              *---*             " + palabras.get(indice).getPalabra()
                             + "\n|                |"
                             + "\n|                |                 Pista: " + palabras.get(indice).getPista()
                             + "\n|                |"
@@ -100,7 +100,7 @@ public class UT1T1RobinGonzalezAnton {
                             + "\n|                |"
                             + "\n|              .---."
                             + "\n|             ( o o )"
-                            + "\n|              *---*             " + ocultarPalabra(palabras.get(indice).getPalabra())
+                            + "\n|              *---*             " + palabras.get(indice).getPalabra()
                             + "\n|               /|"
                             + "\n|              / |                 Pista: " + palabras.get(indice).getPista()
                             + "\n|                |"
@@ -119,7 +119,7 @@ public class UT1T1RobinGonzalezAnton {
                             + "\n|                |"
                             + "\n|              .---."
                             + "\n|             ( o o )"
-                            + "\n|              *---*             " + ocultarPalabra(palabras.get(indice).getPalabra())
+                            + "\n|              *---*             " + palabras.get(indice).getPalabra()
                             + "\n|               /|\\"
                             + "\n|              / | \\              Pista: " + palabras.get(indice).getPista()
                             + "\n|                |"
@@ -138,7 +138,7 @@ public class UT1T1RobinGonzalezAnton {
                             + "\n|                |"
                             + "\n|              .---."
                             + "\n|             ( o o )"
-                            + "\n|              *---*             " + ocultarPalabra(palabras.get(indice).getPalabra())
+                            + "\n|              *---*             " + palabras.get(indice).getPalabra()
                             + "\n|               /|\\"
                             + "\n|              / | \\              Pista: " + palabras.get(indice).getPista()
                             + "\n|                |"
@@ -212,21 +212,21 @@ public class UT1T1RobinGonzalezAnton {
         return correcto;
         
     }
-
-    // Metodo para ocultar palabra con asteriscos
-    public static String ocultarPalabra(String palabra) {
-
-        String palabraOculta = "";
-
-        for (int i = 0; i < palabra.length(); i++) {
-
-            palabraOculta += " _ ";
-
-        }
-
-        return palabraOculta;
-
-    }
+    
+//    // Metodo para ocultar palabra con asteriscos
+//    public static String ocultarPalabra(String palabra) {
+//
+//        String palabraOculta = "";
+//
+//        for (int i = 0; i < palabra.length(); i++) {
+//
+//            palabraOculta += " _ ";
+//
+//        }
+//
+//        return palabraOculta;
+//
+//    }
 
     // Metodo para elegir palabra al azar
     public static int indiceAleatorio(List<Palabras> palabras) {
@@ -261,18 +261,14 @@ public class UT1T1RobinGonzalezAnton {
 
             while ((lineaActual = buffer.readLine()) != null) {
 
-                // Guardar datos en un arraylist
-                // Separar linea de palabra y pista
                 String leido[] = new String[2];
                 leido = lineaActual.split(";");
 
                 String palabra = leido[0];
                 String pista = leido[1];
 
-                // Creacion del objeto palabras
                 Palabras pal = new Palabras(palabra, pista);
 
-                // Adicion de la palabra al ArrayList
                 arrayPalabras.add(pal);
 
             }
