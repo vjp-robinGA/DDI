@@ -76,6 +76,12 @@ public class JDialog2 extends javax.swing.JDialog {
         
     }
     
+    public void reestablecerDialog(){
+        
+        jLabel1.setText("No hay premio...");
+        
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         padre.cambiarTexto("Has cerrado el JDialog 2");
