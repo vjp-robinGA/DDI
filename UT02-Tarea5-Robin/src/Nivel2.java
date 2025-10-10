@@ -9,12 +9,15 @@
  */
 public class Nivel2 extends javax.swing.JDialog {
 
+    VentanaPrincipal padre;
+    
     /**
      * Creates new form Nivel2
      */
     public Nivel2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        padre = (VentanaPrincipal)parent;
     }
 
     /**
@@ -245,7 +248,10 @@ public class Nivel2 extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        
+        Ganaste ganaste = new Ganaste(padre, true);
+        ganaste.setVisible(true);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

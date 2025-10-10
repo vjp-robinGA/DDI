@@ -1,13 +1,24 @@
+
+import java.awt.AWTException;
+import java.awt.Component;
+import java.awt.List;
+import java.awt.Robot;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-
 /**
  *
  * @author alumno
  */
 public class Nivel1 extends javax.swing.JDialog {
+
+    VentanaPrincipal padre;
+
+    MiMouseListener listener = new MiMouseListener();
 
     /**
      * Creates new form Nivel1
@@ -15,8 +26,24 @@ public class Nivel1 extends javax.swing.JDialog {
     public Nivel1(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        padre = (VentanaPrincipal) parent;
+        comprobarPared();
     }
 
+    public void iniciar() {
+        
+        try{
+            
+            System.out.println("Moviendo el raton");
+                Robot robot = new Robot();
+                robot.mouseMove(this.jButton1.getX(), this.jButton1.getY());
+            
+        }catch(AWTException e1){
+            e1.printStackTrace();
+        }
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,6 +93,11 @@ public class Nivel1 extends javax.swing.JDialog {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("FINISH");
         jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 580, 90, 30));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -74,99 +106,137 @@ public class Nivel1 extends javax.swing.JDialog {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 90, 30));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setName(""); // NOI18N
+        jLabel2.setName("wallLabel"); // NOI18N
         jLabel2.setOpaque(true);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 680, 10));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setName(""); // NOI18N
+        jLabel3.setName("wallLabel"); // NOI18N
         jLabel3.setOpaque(true);
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 650, 50));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setName(""); // NOI18N
+        jLabel4.setName("wallLabel"); // NOI18N
         jLabel4.setOpaque(true);
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 110, 200));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setName(""); // NOI18N
+        jLabel5.setName("wallLabel"); // NOI18N
         jLabel5.setOpaque(true);
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 70, 200));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setName(""); // NOI18N
+        jLabel6.setName("wallLabel"); // NOI18N
         jLabel6.setOpaque(true);
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 180, 150));
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel7.setName(""); // NOI18N
+        jLabel7.setName("wallLabel"); // NOI18N
         jLabel7.setOpaque(true);
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 510, 140, 70));
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel8.setName(""); // NOI18N
+        jLabel8.setName("wallLabel"); // NOI18N
         jLabel8.setOpaque(true);
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 40, 100));
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel9.setName(""); // NOI18N
+        jLabel9.setName("wallLabel"); // NOI18N
         jLabel9.setOpaque(true);
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 240, 40));
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel10.setName(""); // NOI18N
+        jLabel10.setName("wallLabel"); // NOI18N
         jLabel10.setOpaque(true);
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 40, 280));
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel11.setName(""); // NOI18N
+        jLabel11.setName("wallLabel"); // NOI18N
         jLabel11.setOpaque(true);
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 100, 60));
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel12.setName(""); // NOI18N
+        jLabel12.setName("wallLabel"); // NOI18N
         jLabel12.setOpaque(true);
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 90, 350));
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel13.setName(""); // NOI18N
+        jLabel13.setName("wallLabel"); // NOI18N
         jLabel13.setOpaque(true);
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, 40, 60));
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel14.setName(""); // NOI18N
+        jLabel14.setName("wallLabel"); // NOI18N
         jLabel14.setOpaque(true);
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 180, 210));
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel15.setName(""); // NOI18N
+        jLabel15.setName("wallLabel"); // NOI18N
         jLabel15.setOpaque(true);
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 700, 90));
 
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel16.setName(""); // NOI18N
+        jLabel16.setName("wallLabel"); // NOI18N
         jLabel16.setOpaque(true);
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 540, 240, 40));
 
         jLabel17.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel17.setName(""); // NOI18N
+        jLabel17.setName("wallLabel"); // NOI18N
         jLabel17.setOpaque(true);
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 10, 610));
 
         jLabel18.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel18.setName(""); // NOI18N
+        jLabel18.setName("wallLabel"); // NOI18N
         jLabel18.setOpaque(true);
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 610));
 
         jLabel19.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel19.setName(""); // NOI18N
+        jLabel19.setName("wallLabel"); // NOI18N
         jLabel19.setOpaque(true);
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel19MouseEntered(evt);
+            }
+        });
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 650, 80));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comprobarPared() {
+
+        int pos = 0;
+
+        Component[] listaComponentes = jPanel1.getComponents();
+
+        for (int i = 0; i < listaComponentes.length; i++) {
+
+            if (listaComponentes[i].getName() != null) {
+
+                if (listaComponentes[i].getName().equalsIgnoreCase("wallLabel")) {
+
+                    listaComponentes[i].addMouseListener(listener);
+
+                }
+
+            }
+
+        }
+
+    }
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        Ganaste ganaste = new Ganaste(padre, true);
+        ganaste.setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel19MouseEntered
 
     /**
      * @param args the command line arguments
