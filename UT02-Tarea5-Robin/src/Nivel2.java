@@ -1,3 +1,8 @@
+
+import java.awt.AWTException;
+import java.awt.Component;
+import java.awt.Robot;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
@@ -11,6 +16,8 @@ public class Nivel2 extends javax.swing.JDialog {
 
     VentanaPrincipal padre;
     
+    MiMouseListener listener = new MiMouseListener();
+    
     /**
      * Creates new form Nivel2
      */
@@ -18,6 +25,21 @@ public class Nivel2 extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         padre = (VentanaPrincipal)parent;
+        comprobarPared();
+    }
+    
+    public void iniciar() {
+        
+        try{
+            
+            System.out.println("Moviendo el raton");
+                Robot robot = new Robot();
+                robot.mouseMove(this.jButton2.getX(), this.jButton2.getY());
+            
+        }catch(AWTException e1){
+            e1.printStackTrace();
+        }
+        
     }
 
     /**
@@ -65,6 +87,7 @@ public class Nivel2 extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 246, 246));
@@ -74,155 +97,186 @@ public class Nivel2 extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("TIEMPO");
+        jLabel1.setName("wallLabel"); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 680, 70));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setToolTipText("");
+        jLabel2.setName("wallLabel"); // NOI18N
         jLabel2.setOpaque(true);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 700, 90));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setToolTipText("");
+        jLabel3.setName("wallLabel"); // NOI18N
         jLabel3.setOpaque(true);
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 10, 610));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setToolTipText("");
+        jLabel4.setName("wallLabel"); // NOI18N
         jLabel4.setOpaque(true);
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 610));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setToolTipText("");
+        jLabel5.setName("wallLabel"); // NOI18N
         jLabel5.setOpaque(true);
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 680, 10));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setToolTipText("");
+        jLabel6.setName("wallLabel"); // NOI18N
         jLabel6.setOpaque(true);
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 570));
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setToolTipText("");
+        jLabel7.setName("wallLabel"); // NOI18N
         jLabel7.setOpaque(true);
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 200, 280));
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setToolTipText("");
+        jLabel8.setName("wallLabel"); // NOI18N
         jLabel8.setOpaque(true);
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 100, 70));
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setToolTipText("");
+        jLabel9.setName("wallLabel"); // NOI18N
         jLabel9.setOpaque(true);
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 550, 340, 30));
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
         jLabel10.setToolTipText("");
+        jLabel10.setName("wallLabel"); // NOI18N
         jLabel10.setOpaque(true);
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 170, 60));
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setToolTipText("");
+        jLabel11.setName("wallLabel"); // NOI18N
         jLabel11.setOpaque(true);
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, 210, 30));
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
         jLabel12.setToolTipText("");
+        jLabel12.setName("wallLabel"); // NOI18N
         jLabel12.setOpaque(true);
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 550, 210, 60));
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setToolTipText("");
+        jLabel13.setName("wallLabel"); // NOI18N
         jLabel13.setOpaque(true);
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 240, 90));
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setToolTipText("");
+        jLabel14.setName("wallLabel"); // NOI18N
         jLabel14.setOpaque(true);
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 200, 40));
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
         jLabel15.setToolTipText("");
+        jLabel15.setName("wallLabel"); // NOI18N
         jLabel15.setOpaque(true);
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 110, 100));
 
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setToolTipText("");
+        jLabel16.setName("wallLabel"); // NOI18N
         jLabel16.setOpaque(true);
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 170, 40));
 
         jLabel17.setBackground(new java.awt.Color(0, 0, 0));
         jLabel17.setToolTipText("");
+        jLabel17.setName("wallLabel"); // NOI18N
         jLabel17.setOpaque(true);
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 40, 70));
 
         jLabel18.setBackground(new java.awt.Color(0, 0, 0));
         jLabel18.setToolTipText("");
+        jLabel18.setName("wallLabel"); // NOI18N
         jLabel18.setOpaque(true);
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 360, 80));
 
         jLabel19.setBackground(new java.awt.Color(0, 0, 0));
         jLabel19.setToolTipText("");
+        jLabel19.setName("wallLabel"); // NOI18N
         jLabel19.setOpaque(true);
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 140, 70));
 
         jLabel20.setBackground(new java.awt.Color(0, 0, 0));
         jLabel20.setToolTipText("");
+        jLabel20.setName("wallLabel"); // NOI18N
         jLabel20.setOpaque(true);
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 100, 40));
 
         jLabel21.setBackground(new java.awt.Color(0, 0, 0));
         jLabel21.setToolTipText("");
+        jLabel21.setName("wallLabel"); // NOI18N
         jLabel21.setOpaque(true);
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 90, 60));
 
         jLabel22.setBackground(new java.awt.Color(0, 0, 0));
         jLabel22.setToolTipText("");
+        jLabel22.setName("wallLabel"); // NOI18N
         jLabel22.setOpaque(true);
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 110, 60));
 
         jLabel23.setBackground(new java.awt.Color(0, 0, 0));
         jLabel23.setToolTipText("");
+        jLabel23.setName("wallLabel"); // NOI18N
         jLabel23.setOpaque(true);
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 50, 180));
 
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setToolTipText("");
+        jLabel24.setName("wallLabel"); // NOI18N
         jLabel24.setOpaque(true);
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, 50, 180));
 
         jLabel25.setBackground(new java.awt.Color(0, 0, 0));
         jLabel25.setToolTipText("");
+        jLabel25.setName("wallLabel"); // NOI18N
         jLabel25.setOpaque(true);
         jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 70, 100));
 
         jLabel26.setBackground(new java.awt.Color(0, 0, 0));
         jLabel26.setToolTipText("");
+        jLabel26.setName("wallLabel"); // NOI18N
         jLabel26.setOpaque(true);
         jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 160, 40));
 
         jLabel27.setBackground(new java.awt.Color(0, 0, 0));
         jLabel27.setToolTipText("");
+        jLabel27.setName("wallLabel"); // NOI18N
         jLabel27.setOpaque(true);
         jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 80, 70));
 
         jLabel28.setBackground(new java.awt.Color(0, 0, 0));
         jLabel28.setToolTipText("");
+        jLabel28.setName("wallLabel"); // NOI18N
         jLabel28.setOpaque(true);
         jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 150, 80));
 
         jLabel29.setBackground(new java.awt.Color(0, 0, 0));
         jLabel29.setToolTipText("");
+        jLabel29.setName("wallLabel"); // NOI18N
         jLabel29.setOpaque(true);
         jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 40, 60));
 
         jLabel30.setBackground(new java.awt.Color(0, 0, 0));
         jLabel30.setToolTipText("");
+        jLabel30.setName("wallLabel"); // NOI18N
         jLabel30.setOpaque(true);
         jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 40, 110));
 
         jLabel31.setBackground(new java.awt.Color(0, 0, 0));
         jLabel31.setToolTipText("");
+        jLabel31.setName("wallLabel"); // NOI18N
         jLabel31.setOpaque(true);
         jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 40, 40));
 
@@ -247,6 +301,28 @@ public class Nivel2 extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void comprobarPared() {
+
+        int pos = 0;
+
+        Component[] listaComponentes = jPanel1.getComponents();
+
+        for (int i = 0; i < listaComponentes.length; i++) {
+
+            if (listaComponentes[i].getName() != null) {
+
+                if (listaComponentes[i].getName().equalsIgnoreCase("wallLabel")) {
+
+                    listaComponentes[i].addMouseListener(listener);
+
+                }
+
+            }
+
+        }
+
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
         Ganaste ganaste = new Ganaste(padre, true);
