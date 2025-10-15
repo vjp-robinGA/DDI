@@ -20,6 +20,12 @@ public class Ganaste extends javax.swing.JDialog {
         padre = (VentanaPrincipal)parent;
     }
 
+    public void setTiempo(String tiempo){
+        
+        this.jLabel4.setText(tiempo);
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,7 +59,7 @@ public class Ganaste extends javax.swing.JDialog {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("0:00");
+        jLabel4.setText("0 segundos");
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -123,6 +129,9 @@ public class Ganaste extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         this.setVisible(false);
+        
+        padre.cerrarNivel1();
+        padre.cerrarNivel2();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

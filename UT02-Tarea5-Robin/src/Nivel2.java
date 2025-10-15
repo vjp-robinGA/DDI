@@ -2,6 +2,7 @@
 import java.awt.AWTException;
 import java.awt.Component;
 import java.awt.Robot;
+import javax.swing.Timer;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,6 +19,9 @@ public class Nivel2 extends javax.swing.JDialog {
     
     MiMouseListener listener = new MiMouseListener();
     
+    Timer temporizador;
+    int segundos;
+    
     /**
      * Creates new form Nivel2
      */
@@ -25,7 +29,15 @@ public class Nivel2 extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         padre = (VentanaPrincipal)parent;
+        iniciar();
         comprobarPared();
+        
+        listener.setPadre(padre);
+        
+        temporizador = new Timer(1000, (e) -> {
+            segundos++;
+            jLabel1.setText(segundos + " segundos");
+        });
     }
     
     public void iniciar() {
@@ -33,8 +45,8 @@ public class Nivel2 extends javax.swing.JDialog {
         try{
             
             System.out.println("Moviendo el raton");
-                Robot robot = new Robot();
-                robot.mouseMove(this.jButton2.getX(), this.jButton2.getY());
+            Robot robot = new Robot();
+            robot.mouseMove(this.jButton3.getX(), this.jButton3.getY());
             
         }catch(AWTException e1){
             e1.printStackTrace();
@@ -325,7 +337,12 @@ public class Nivel2 extends javax.swing.JDialog {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
+        temporizador.stop();
+        
+        String tiempo = this.jLabel1.getText();
+        
         Ganaste ganaste = new Ganaste(padre, true);
+        ganaste.setTiempo(tiempo);
         ganaste.setVisible(true);
         
     }//GEN-LAST:event_jButton2ActionPerformed

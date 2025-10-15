@@ -5,6 +5,7 @@ import java.awt.List;
 import java.awt.Robot;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import javax.swing.Timer;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -20,6 +21,9 @@ public class Nivel1 extends javax.swing.JDialog {
 
     MiMouseListener listener = new MiMouseListener();
 
+    Timer temporizador;
+    int segundos;
+
     /**
      * Creates new form Nivel1
      */
@@ -27,23 +31,32 @@ public class Nivel1 extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         padre = (VentanaPrincipal) parent;
+        iniciar();
         comprobarPared();
+
+        listener.setPadre(padre);
+        
+        temporizador = new Timer(1000, (e) -> {
+            segundos++;
+            jLabel1.setText(segundos + " segundos");
+        });
+
     }
 
     public void iniciar() {
-        
-        try{
-            
+
+        try {
+
             System.out.println("Moviendo el raton");
             Robot robot = new Robot();
-            robot.mouseMove(this.jButton1.getX(), this.jButton1.getY());
-            
-        }catch(AWTException e1){
+            robot.mouseMove(this.jButton2.getX(), this.jButton2.getY());
+
+        } catch (AWTException e1) {
             e1.printStackTrace();
         }
-        
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,6 +117,11 @@ public class Nivel1 extends javax.swing.JDialog {
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setText("START");
         jButton2.setBorder(null);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 90, 30));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -230,14 +248,25 @@ public class Nivel1 extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        temporizador.stop();
+        
+        String tiempo = this.jLabel1.getText();
+        
         Ganaste ganaste = new Ganaste(padre, true);
-        ganaste.setVisible(true);
+        ganaste.setTiempo(tiempo);
+        ganaste.setVisible(true);        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel19MouseEntered
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        temporizador.start();
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

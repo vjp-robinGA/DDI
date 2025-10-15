@@ -28,12 +28,13 @@ public class MiMouseListener implements MouseListener{
         
     }
 
-    @Override
     public void mouseEntered(MouseEvent e) {
         
         Perdiste perdiste = new Perdiste(padre, true);
         perdiste.setVisible(true);
         
+        padre.cerrarNivel1();
+        padre.cerrarNivel2();
         
     }
 

@@ -9,6 +9,9 @@
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
+    Nivel1 nivel1 = new Nivel1(this, true);
+    Nivel2 nivel2 = new Nivel2(this, true);
+    
     /**
      * Creates new form VentanaPrincipal
      */
@@ -16,6 +19,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void cerrarNivel1(){
+        
+        nivel1.setVisible(false);
+        
+    }
+    
+    public void cerrarNivel2(){
+        
+        nivel2.setVisible(false);
+        
+    }
+    
+    public void addGanador(){
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,10 +96,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(88, 88, 88)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,14 +120,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Nivel1 nivel1 = new Nivel1(this, true);
         nivel1.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        Nivel2 nivel2 = new Nivel2(this, true);
         nivel2.setVisible(true);
                 
     }//GEN-LAST:event_jButton3ActionPerformed
