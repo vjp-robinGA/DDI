@@ -28,6 +28,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.jTable1.setModel(atm);
     }
 
+    public void modificarAlumno(Alumno alumno, int fila){
+        
+        logica.getAlumnos().set(fila, alumno);
+        this.jTable1.updateUI();
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,6 +77,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 140, 40));
 
         jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 140, 40));
 
         jButton3.setText("Borrar");
@@ -119,6 +131,31 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         nuevoAlumno.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        VentanaEditar editarAlumno = new VentanaEditar(this, true);
+        
+        int fila = this.jTable1.getSelectedRow();
+        
+        if(fila >= 0 && fila < logica.getAlumnos().size()){
+            
+            Alumno alumnoAux = logica.getAlumnos().get(fila);
+            
+            editarAlumno.setAlumnoAux(alumnoAux);
+            editarAlumno.setFila(fila);
+            editarAlumno.completarTextFields(alumnoAux);
+            
+            editarAlumno.setVisible(true);
+            
+        }
+        else{
+            
+            JOptionPane.showMessageDialog(this, "No hay fila seleccionada", "Error", JOptionPane.WARNING_MESSAGE);
+            
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
