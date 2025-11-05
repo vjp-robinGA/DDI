@@ -1,0 +1,38 @@
+------------------------------------
+------------------------------------
+
+Ticket:
+
+------------------------------------
+Principal:
+
+Hamburguesa: Cerdo 
+Pan: Normal 
+Patatas: Gajo 
+Bebida: Naranja 
+
+------------------------------------
+Extras
+
+Hamburguesa Doble: true
+Extra de Patatas: false
+Extra de Queso: false
+
+------------------------------------
+Salsas:
+
+Ketchup: 2
+Mostaza: 3
+Barbacoa: 0
+Thai: 1
+
+------------------------------------
+
+Opcion de Reparto: Recogida en local (-20% dto.) 
+
+Precio Inicial: 10.4
+IVA (21%): 2.184
+P.V.P: 12.584
+
+------------------------------------
+------------------------------------

@@ -1,3 +1,9 @@
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -441,20 +447,130 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
+        double total = 8;
+        
         String hamburguesa = buttonGroup1.getSelection().getActionCommand();
+        if(hamburguesa.equalsIgnoreCase(jRadioButton3.getActionCommand()) || hamburguesa.equalsIgnoreCase(jRadioButton4.getActionCommand())){
+            
+            total += 1;
+            
+        }
+        
         String pan = buttonGroup2.getSelection().getActionCommand();
+        
         String patatas = buttonGroup3.getSelection().getActionCommand();
+        if(patatas.equalsIgnoreCase(jRadioButton10.getActionCommand())){
+            
+            total += 1;
+            
+        }
+        
         String bebida = buttonGroup4.getSelection().getActionCommand();
-        String reparto = buttonGroup5.getSelection().getActionCommand();
+        
+        
         
         int ketchup = (int)spinnerKetchup.getValue();
+        total += (ketchup * 0.50);
+        
         int mostaza = (int)spinnerMostaza.getValue();
+        total += (mostaza * 0.50);
+        
         int barbacoa = (int)spinnerBarbacoa.getValue();
+        total += (barbacoa * 0.50);
+        
         int thai = (int)spinnerThai.getValue();
+        total += (thai * 0.50);
+        
+        
         
         boolean hamburguesaDoble = chkBoxDoble.isSelected();
+        if(hamburguesaDoble == true){
+            
+            total += 2;
+            
+        }
+        
         boolean extraPatatas = chkBoxPatatas.isSelected();
+        if(extraPatatas == true){
+            
+            total += 0.5;
+            
+        }
+        
         boolean extraQueso = chkBoxQueso.isSelected();
+        if(extraQueso == true){
+            
+            total += 1;
+            
+        }
+        
+        String reparto = buttonGroup5.getSelection().getActionCommand();
+        if(reparto.equalsIgnoreCase(jRadioButton17.getActionCommand())){
+            
+            total = total - (total * 0.2);
+            
+        }
+        
+        jTextField1.setText("" + total);
+        
+        double iva = total * 0.21;
+        
+        jTextField2.setText("" + iva);
+        
+        double pvp = total + iva;
+        
+        jTextField3.setText("" + pvp);
+        
+        try{
+            
+            File reciboTicket = new File("ReciboTicket.txt");            
+            FileWriter fw = new FileWriter(reciboTicket);
+            PrintWriter pw = new PrintWriter(fw);
+            
+            pw.println("------------------------------------");
+            pw.println("------------------------------------");
+            pw.println("");
+            pw.println("Ticket:");
+            pw.println("");
+            pw.println("------------------------------------");
+            pw.println("Principal:");
+            pw.println("");
+            pw.println("Hamburguesa: " + hamburguesa);
+            pw.println("Pan: " + pan);
+            pw.println("Patatas: " + patatas);
+            pw.println("Bebida: " + bebida);
+            pw.println("");
+            pw.println("------------------------------------");
+            pw.println("Extras");
+            pw.println("");
+            pw.println("Hamburguesa Doble: " + hamburguesaDoble);
+            pw.println("Extra de Patatas: " + extraPatatas);
+            pw.println("Extra de Queso: " + extraQueso);
+            pw.println("");
+            pw.println("------------------------------------");
+            pw.println("Salsas:");
+            pw.println("");
+            pw.println("Ketchup: " + ketchup);
+            pw.println("Mostaza: " + mostaza);
+            pw.println("Barbacoa: " + barbacoa);
+            pw.println("Thai: " + thai);
+            pw.println("");
+            pw.println("------------------------------------");
+            pw.println("");
+            pw.println("Opcion de Reparto: " + reparto);
+            pw.println("");
+            pw.println("Precio Inicial: " + total);
+            pw.println("IVA (21%): " + iva);
+            pw.println("P.V.P: " + pvp);
+            pw.println("");
+            pw.println("------------------------------------");
+            pw.println("------------------------------------");
+            
+            fw.close();
+        }
+        catch(Exception e1){
+            e1.printStackTrace();
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
