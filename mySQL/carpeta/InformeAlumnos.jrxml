@@ -1,0 +1,65 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="Blank_A4" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3eb5b2f1-281f-4012-b3f0-6fcb98fc7209">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="YWx1bW5vcy5gQWx1bW5vc2AgQVMgLDEwNiw2NCw0YThjNTUxZi1lZTU5LTRkNWYtYWZkMC05MmNj&#xa;NGJhODkyY2U7"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+	<query language="SQL"><![CDATA[SELECT `idAlumno`,
+	`Nombre`,
+	`Curso`
+FROM alumnos.`Alumnos`]]></query>
+	<field name="idAlumno" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idAlumno"/>
+		<property name="com.jaspersoft.studio.field.label" value="idAlumno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<field name="Nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="Nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<field name="Curso" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Curso"/>
+		<property name="com.jaspersoft.studio.field.label" value="Curso"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="rectangle" uuid="816a9b7a-d6c6-4292-b200-706e24cff503" x="-10" y="0" width="570" height="74" backcolor="#784A49"/>
+		<element kind="staticText" uuid="e9309cc7-71f8-4260-bca0-177b253fe45f" x="180" y="9" width="210" height="70" forecolor="#CF7F7E" backcolor="#EB221E" fontSize="41.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Alumnos]]></text>
+		</element>
+	</title>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="61" splitType="Stretch">
+		<element kind="staticText" uuid="67c9a292-bc1c-4c65-899d-2853dd7e458a" x="0" y="0" width="185" height="30">
+			<text><![CDATA[idAlumno]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3a9d273-fbf9-4854-b8dc-7731d20b9047"/>
+		</element>
+		<element kind="staticText" uuid="cdebec91-d427-44e0-8321-adfd3c2f60b2" x="185" y="0" width="185" height="30">
+			<text><![CDATA[Nombre]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7065f980-80e0-4a66-8c43-457ef03b8c23"/>
+		</element>
+		<element kind="staticText" uuid="a3877fb8-8fdf-4001-b3a7-13daf5fea862" x="370" y="0" width="185" height="30">
+			<text><![CDATA[Curso]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1cadb97e-af21-410a-b678-b195b0ba4016"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<element kind="textField" uuid="c7e7c004-bf3f-4a9a-bff3-a9c6003dc492" x="0" y="0" width="185" height="30">
+				<expression><![CDATA[$F{idAlumno}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3a9d273-fbf9-4854-b8dc-7731d20b9047"/>
+			</element>
+			<element kind="textField" uuid="e58717a7-11df-4e1f-ab35-22d22df641e8" x="185" y="0" width="185" height="30">
+				<expression><![CDATA[$F{Nombre}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7065f980-80e0-4a66-8c43-457ef03b8c23"/>
+			</element>
+			<element kind="textField" uuid="f176dff9-3f5a-4449-8626-e9362c4275f5" x="370" y="0" width="185" height="30">
+				<expression><![CDATA[$F{Curso}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1cadb97e-af21-410a-b678-b195b0ba4016"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
