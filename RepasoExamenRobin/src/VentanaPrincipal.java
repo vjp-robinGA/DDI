@@ -1,6 +1,11 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /*
@@ -15,6 +20,7 @@ import javax.swing.JOptionPane;
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     Graphics graficos;
+    BufferedImage buffNuevo;
     Color color = Color.BLACK;
     
     /**
@@ -22,6 +28,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents();
+        
+        buffNuevo = new BufferedImage(this.jLabel3.getWidth(), this.jLabel3.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        graficos = buffNuevo.getGraphics();
+        this.jLabel3.setIcon(new ImageIcon(buffNuevo));
     }
 
     /**
@@ -68,6 +78,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setOpaque(true);
+        jLabel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jLabel3MouseDragged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -87,6 +105,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 640, -1));
 
         jSlider1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jSlider1.setMaximum(50);
+        jSlider1.setToolTipText("");
+        jSlider1.setValue(5);
         getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 550, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -97,14 +118,58 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setText("Borrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 100, 30));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton2.setText("Validar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 550, 120, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseDragged
+        
+        int x = evt.getX();
+        int y = evt.getY();
+        int width = jSlider1.getValue();
+        
+        graficos.setColor(color);
+        graficos.fillOval(x, y, width, width);
+        System.out.println("Pintando en ( X: " + x + ". Y: " + y + ". )");
+        this.jLabel3.updateUI();
+        
+    }//GEN-LAST:event_jLabel3MouseDragged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+          
+        graficos.setColor(jLabel3.getBackground());
+        graficos.fillRect(0, 0, buffNuevo.getWidth(), buffNuevo.getHeight());
+
+        jLabel3.updateUI();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        try{
+            
+            ImageIO.write(buffNuevo, "png", new File(this.jTextField1.getText() + "_" + jTextField2.getText() + ".png"));
+            
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
